@@ -1,0 +1,6 @@
+/logger/target
+/target
+/data
+/logs
+.env*
+docker-compose*

@@ -1,0 +1,38 @@
+[package]
+name = "bf4-brlogger"
+version = "0.1.0"
+authors = ["Razer2015 <razer138@gmail.com>"]
+description = "Integrations between BF4 server, Battlelog and Discord."
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.13", features = ["macros", "rt-multi-thread", "time"] }
+tokio-stream = "0.1"
+chrono = "0.4"
+chrono-tz = { version = "0.4", features = ["serde"] }
+dotenv = "0.15.0"
+anyhow = { version = "1.0" }
+battlefield_rcon = { git = "https://github.com/Kiiyya/BattleFox", branch = "nom_only" }
+battlelog = { git = "https://github.com/Kiiyya/BattleFox", branch = "battlelog-additions" }
+ascii = { version = "1.0.0", features = ["serde"] }
+webhook = "2.1.1"
+serde = { version = "1.0.149", features = ["derive"] }
+serde_json = { version = "1.0.89" }
+
+futures = "0.3.25"
+periodic = "0.1.1"
+async-std = "1.12.0"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+actix-web = "4"
+mime = "0.3.16"
+
+sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "mysql", "macros", "time", "offline", "tls" ] }
+
+# Logging
+log = "0.4"
+flexi_logger = { version = "0.17", features = ["colors"] }
+
+[target.'cfg(unix)'.dependencies]
+openssl = { version = "0.10", features = ["vendored"] }

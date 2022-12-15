@@ -1,0 +1,715 @@
+{
+  "db": "MySQL",
+  "3e5d4d1d7d3c49df2141cb250ac1b8e524ef569985bf449aeafd74189a0635f1": {
+    "describe": {
+      "columns": [
+        {
+          "name": "report_id",
+          "ordinal": 0,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 4137
+            },
+            "max_size": 20,
+            "type": "LongLong"
+          }
+        },
+        {
+          "name": "persona_id",
+          "ordinal": 1,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 41
+            },
+            "max_size": 20,
+            "type": "LongLong"
+          }
+        },
+        {
+          "name": "kills",
+          "ordinal": 2,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "deaths",
+          "ordinal": 3,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "shots_hit",
+          "ordinal": 4,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 12,
+            "type": "Float"
+          }
+        },
+        {
+          "name": "shots_fired",
+          "ordinal": 5,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 12,
+            "type": "Float"
+          }
+        },
+        {
+          "name": "vehicle_destroyed",
+          "ordinal": 6,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "assists",
+          "ordinal": 7,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "spm",
+          "ordinal": 8,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "kd_ratio",
+          "ordinal": 9,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 12,
+            "type": "Float"
+          }
+        },
+        {
+          "name": "skill",
+          "ordinal": 10,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "vehicle_assists",
+          "ordinal": 11,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "accuracy",
+          "ordinal": 12,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_unlock",
+          "ordinal": 13,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_bomber",
+          "ordinal": 14,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehiclesh",
+          "ordinal": 15,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehicleajet",
+          "ordinal": 16,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_engineer",
+          "ordinal": 17,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_commander",
+          "ordinal": 18,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_assault",
+          "ordinal": 19,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "vehicle",
+          "ordinal": 20,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehicleaa",
+          "ordinal": 21,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_award",
+          "ordinal": 22,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehicleifv",
+          "ordinal": 23,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_recon",
+          "ordinal": 24,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehicleah",
+          "ordinal": 25,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_support",
+          "ordinal": 26,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehiclesjet",
+          "ordinal": 27,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "total",
+          "ordinal": 28,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehiclembt",
+          "ordinal": 29,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "sc_vehicleaboat",
+          "ordinal": 30,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "heals",
+          "ordinal": 31,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "revives",
+          "ordinal": 32,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "team",
+          "ordinal": 33,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "kill_streak",
+          "ordinal": 34,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "squad_id",
+          "ordinal": 35,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "accuracy_detailed",
+          "ordinal": 36,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 1
+            },
+            "max_size": 12,
+            "type": "Float"
+          }
+        },
+        {
+          "name": "dnf",
+          "ordinal": 37,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 33
+            },
+            "max_size": 1,
+            "type": "Bit"
+          }
+        },
+        {
+          "name": "is_commander",
+          "ordinal": 38,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 33
+            },
+            "max_size": 1,
+            "type": "Bit"
+          }
+        },
+        {
+          "name": "is_soldier",
+          "ordinal": 39,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 33
+            },
+            "max_size": 1,
+            "type": "Bit"
+          }
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Right": 2
+      }
+    },
+    "query": "SELECT * from playerreports WHERE report_id = ? AND persona_id = ?"
+  },
+  "9ed0590fc47dbe6219de6da273bbe882e70307d81bc16b71e124e391074cd392": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 4131
+            },
+            "max_size": 20,
+            "type": "LongLong"
+          }
+        },
+        {
+          "name": "duration",
+          "ordinal": 1,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 33
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "winner",
+          "ordinal": 2,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 33
+            },
+            "max_size": 1,
+            "type": "Bit"
+          }
+        },
+        {
+          "name": "server_id",
+          "ordinal": 3,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 9
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        },
+        {
+          "name": "map",
+          "ordinal": 4,
+          "type_info": {
+            "char_set": 224,
+            "flags": {
+              "bits": 4113
+            },
+            "max_size": 1020,
+            "type": "Blob"
+          }
+        },
+        {
+          "name": "mode",
+          "ordinal": 5,
+          "type_info": {
+            "char_set": 224,
+            "flags": {
+              "bits": 4113
+            },
+            "max_size": 1020,
+            "type": "Blob"
+          }
+        },
+        {
+          "name": "created_at",
+          "ordinal": 6,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 33
+            },
+            "max_size": 11,
+            "type": "Long"
+          }
+        }
+      ],
+      "nullable": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "parameters": {
+        "Right": 1
+      }
+    },
+    "query": "SELECT * from battlereports WHERE id = ?"
+  },
+  "b1e07a1e3b1b619ad3137c8330539bdc6a67a09dd704a900c80bb1b327a5f5f6": {
+    "describe": {
+      "columns": [
+        {
+          "name": "id",
+          "ordinal": 0,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 4131
+            },
+            "max_size": 20,
+            "type": "LongLong"
+          }
+        },
+        {
+          "name": "name",
+          "ordinal": 1,
+          "type_info": {
+            "char_set": 224,
+            "flags": {
+              "bits": 16
+            },
+            "max_size": 262140,
+            "type": "Blob"
+          }
+        },
+        {
+          "name": "clan_tag",
+          "ordinal": 2,
+          "type_info": {
+            "char_set": 224,
+            "flags": {
+              "bits": 0
+            },
+            "max_size": 16,
+            "type": "VarString"
+          }
+        },
+        {
+          "name": "gravatar_md5",
+          "ordinal": 3,
+          "type_info": {
+            "char_set": 224,
+            "flags": {
+              "bits": 16
+            },
+            "max_size": 1020,
+            "type": "Blob"
+          }
+        },
+        {
+          "name": "processed",
+          "ordinal": 4,
+          "type_info": {
+            "char_set": 63,
+            "flags": {
+              "bits": 4129
+            },
+            "max_size": 1,
+            "type": "Bit"
+          }
+        }
+      ],
+      "nullable": [
+        false,
+        true,
+        true,
+        true,
+        false
+      ],
+      "parameters": {
+        "Right": 1
+      }
+    },
+    "query": "SELECT * from personas WHERE id = ?"
+  }
+}
