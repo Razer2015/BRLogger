@@ -1,5 +1,6 @@
 use std::{env, time::Duration, str::FromStr};
 
+use anyhow::Context;
 use sqlx::{MySqlPool, MySql, Error, Transaction, mysql::{MySqlPoolOptions, MySqlConnectOptions}, ConnectOptions};
 
 #[derive(Clone, Debug)]
@@ -41,6 +42,13 @@ impl BattlelogContext {
 
     pub async fn begin_transaction(&self) -> Result<Transaction<'_, MySql>, Error> {
         self.pool.begin().await
+    }
+
+    pub fn get_db_coninfo() -> anyhow::Result<String> {
+        dotenv::dotenv()?;
+        let uri = std::env::var("DATABASE_URL")
+            .context("Need to specify Battlefield db URI via env var, for example DATABASE_URL=\"mysql://username:password@host/database\"")?;
+        Ok(uri)
     }
 }
 
@@ -84,7 +92,7 @@ mod test {
     async fn test_persona_insert() -> anyhow::Result<()> {
         let uri = get_db_coninfo()?;
         let db = BattlelogContext::connect(uri).await?;
-        let persona_id = db.insert_persona(&BattlelogPersona::new(824078704, Some("Tatarek99".to_string()), None, None, false)).await?;
+        let persona_id = db.insert_persona(&BattlelogPersona::new(824078704, Some("Tatarek99".to_string()), None, None, false, None)).await?;
         println!("{persona_id:#?}");
         panic!()
     }
@@ -94,7 +102,7 @@ mod test {
     async fn test_persona_update() -> anyhow::Result<()> {
         let uri = get_db_coninfo()?;
         let db = BattlelogContext::connect(uri).await?;
-        let server_id = db.update_persona(&BattlelogPersona::new(824078704, Some("Tatarek99".to_string()), Some("PLT".to_string()), None, false)).await?;
+        let server_id = db.update_persona(&BattlelogPersona::new(824078704, Some("Tatarek99".to_string()), Some("PLT".to_string()), None, false, None)).await?;
         println!("{server_id:#?}");
         panic!()
     }

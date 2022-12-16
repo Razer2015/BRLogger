@@ -432,7 +432,7 @@ dependencies = [
 [[package]]
 name = "battlelog"
 version = "0.1.0"
-source = "git+https://github.com/Kiiyya/BattleFox?branch=battlelog-additions#ce63c34d36339ff53a35e994cf9f20d956bdbc70"
+source = "git+https://github.com/Kiiyya/BattleFox?branch=battlelog-additions#52cd83bf36bf06ed2603c48b091f89bfd6a8f451"
 dependencies = [
  "anyhow",
  "http",

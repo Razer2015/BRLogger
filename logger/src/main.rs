@@ -18,6 +18,8 @@ mod discord;
 mod logging;
 mod round_stats;
 mod endpoints;
+pub mod loadout;
+mod persona;
 
 fn get_rcon_coninfo() -> anyhow::Result<RconConnectionInfo> {
     let ip = var("RCON_IP").unwrap_or_else(|_| "127.0.0.1".into());
@@ -45,6 +47,10 @@ async fn main() -> anyhow::Result<()> {
 
     info!("BR Logger starting");
     info!("Using time zone: {}", get_timezone().name());
+
+    if dotenv::var("UPDATE_PERSONAS").map(|var| var.parse::<bool>()).unwrap_or(Ok(false)).unwrap() {
+        persona::persona_updater::update_personas_without_last_update().await?;
+    }
     
     if dotenv::var("READ_BRR").map(|var| var.parse::<bool>()).unwrap_or(Ok(false)).unwrap() {
         battlereport::read_brr(&dotenv::var("BRR_PATH").unwrap()).await?;
@@ -100,6 +106,7 @@ async fn main() -> anyhow::Result<()> {
             .service(endpoints::battlereport::post_battlereport_by_id)
             .service(endpoints::battlereport::get_battlereports_more)
             .service(endpoints::battlereport::get_battlereports_more_text)
+            .service(endpoints::loadout::get_persona_loadout)
     })
     .bind((rest_api_address, rest_api_port))
     .unwrap()

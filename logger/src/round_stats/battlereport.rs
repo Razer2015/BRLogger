@@ -373,11 +373,11 @@ async fn insert_player_report(db: &BattlelogContext, battlereport: &Battlereport
         if battlereport.player_report.as_ref().unwrap().persona.is_some() {
             let persona = battlereport.player_report.as_ref().unwrap().persona.as_ref().unwrap();
             persona_id = db.insert_persona( 
-                &BattlelogPersona::new(persona_id, Some(persona.persona_name.to_string()), persona.clan_tag.clone(), get_gravatar(battlereport, persona_id), true)).await?;
+                &BattlelogPersona::new(persona_id, Some(persona.persona_name.to_string()), persona.clan_tag.clone(), get_gravatar(battlereport, persona_id), true, None)).await?;
         }
         else {
             persona_id = db.insert_persona( 
-                &BattlelogPersona::new(persona_id, None, None, None, false)).await?;
+                &BattlelogPersona::new(persona_id, None, None, None, false, None)).await?;
         }
     }
 
@@ -509,10 +509,10 @@ async fn build_queries(db: &BattlelogContext, server_cached: Option<BattlelogSer
     
         if battlereport.player_report.as_ref().unwrap().persona.is_some() {
             let persona = battlereport.player_report.as_ref().unwrap().persona.as_ref().unwrap();
-            queries.personas.push(BattlelogPersona::new(persona_id, Some(persona.persona_name.to_string()), persona.clan_tag.clone(), get_gravatar(battlereport, persona_id), true));
+            queries.personas.push(BattlelogPersona::new(persona_id, Some(persona.persona_name.to_string()), persona.clan_tag.clone(), get_gravatar(battlereport, persona_id), true, None));
         }
         else {
-            queries.personas.push(BattlelogPersona::new(persona_id, None, None, None, false));
+            queries.personas.push(BattlelogPersona::new(persona_id, None, None, None, false, None));
         }
     
         // Insert battle report

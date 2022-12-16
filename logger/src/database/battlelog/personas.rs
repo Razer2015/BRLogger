@@ -11,16 +11,18 @@ pub struct BattlelogPersona {
     pub clan_tag: Option<String>,
     pub gravatar_md5: Option<String>,
     pub processed: bool,
+    pub last_updated: Option<u32>,
 }
 
 impl BattlelogPersona {
-    pub fn new(id: u64, name: Option<String>, clan_tag: Option<String>, gravatar_md5: Option<String>, processed: bool) -> Self {
+    pub fn new(id: u64, name: Option<String>, clan_tag: Option<String>, gravatar_md5: Option<String>, processed: bool, last_updated: Option<u32>) -> Self {
         Self { 
             id: id,
             name,
             clan_tag,
             gravatar_md5,
             processed,
+            last_updated,
         }
     }
 
@@ -40,6 +42,7 @@ impl BattlelogPersona {
                 clan_tag: persona.clan_tag.clone(),
                 gravatar_md5: gravatar,
                 processed: true,
+                last_updated: None,
             }
         }
         else {
@@ -49,6 +52,7 @@ impl BattlelogPersona {
                 clan_tag: None,
                 gravatar_md5: None,
                 processed: false,
+                last_updated: None,
             }
         }
     }
@@ -56,12 +60,13 @@ impl BattlelogPersona {
 
 impl BattlelogContext {
     pub async fn get_persona_by_persona_id(&self, persona: u64) -> Result<Option<BattlelogPersona>, sqlx::Error> {
-        pub struct Row {
+        struct Row {
             pub id: u64,
             pub name: Option<String>,
             pub clan_tag: Option<String>,
             pub gravatar_md5: Option<String>,
             pub processed: u8,
+            pub last_updated: Option<u32>,
         }
 
         let res =
@@ -75,6 +80,7 @@ impl BattlelogContext {
             clan_tag: e.clan_tag,
             gravatar_md5: e.gravatar_md5,
             processed: e.processed == 1,
+            last_updated: e.last_updated,
         });
 
         Ok(res)
@@ -87,6 +93,7 @@ impl BattlelogContext {
             pub clan_tag: Option<String>,
             pub gravatar_md5: Option<String>,
             pub processed: u8,
+            pub last_updated: Option<u32>,
         }
 
         let res =
@@ -100,7 +107,35 @@ impl BattlelogContext {
             clan_tag: e.clan_tag,
             gravatar_md5: e.gravatar_md5,
             processed: e.processed == 1,
+            last_updated: e.last_updated,
         });
+
+        Ok(res)
+    }
+
+    pub async fn get_personas_without_update(&self) -> Result<Vec<BattlelogPersona>, sqlx::Error> {
+        pub struct Row {
+            pub id: u64,
+            pub name: Option<String>,
+            pub clan_tag: Option<String>,
+            pub gravatar_md5: Option<String>,
+            pub processed: u8,
+            pub last_updated: Option<u32>,
+        }
+
+        let mut res: Vec<Row> =
+            query_as!(Row, "SELECT * from personas WHERE last_updated IS NULL")
+            .fetch_all(&self.pool)
+            .await?;
+
+        let res: Vec<BattlelogPersona> = res.drain(..).map(|e: Row| BattlelogPersona {
+            id: e.id,
+            name: e.name,
+            clan_tag: e.clan_tag,
+            gravatar_md5: e.gravatar_md5,
+            processed: e.processed == 1,
+            last_updated: e.last_updated,
+        }).collect();
 
         Ok(res)
     }
@@ -154,7 +189,13 @@ impl BattlelogContext {
     async fn update_persona_private(&self, transaction: Option<&mut Transaction<'_, MySql>>, persona: &BattlelogPersona) -> anyhow::Result<bool> {
         let mut res: u64 = 0;
 
-        let query = query!(r#"UPDATE personas SET name = ?, clan_tag = ?, gravatar_md5 = ?, processed = ? WHERE id = ?"#, persona.name, persona.clan_tag, persona.gravatar_md5, persona.processed, persona.id);
+        let query = query!(r#"UPDATE personas SET name = ?, clan_tag = ?, gravatar_md5 = ?, processed = ?, last_updated = ? WHERE id = ?"#, 
+            persona.name, 
+            persona.clan_tag, 
+            persona.gravatar_md5, 
+            persona.processed, 
+            persona.last_updated, 
+            persona.id);
         if transaction.is_some() { 
             res = query
                 .execute(&mut *transaction.unwrap())
